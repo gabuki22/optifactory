@@ -3,286 +3,332 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>로또 번호 추천</title>
+  <title>로또 번호 추천 - 무료 로또 6/45 번호 생성기</title>
+  <meta name="description" content="로또 6/45 무료 번호 추천 서비스. 원하는 번호를 포함하여 5게임을 한 번에 추천받으세요. 로또 당첨 등급, 확률, 전략 정보도 제공합니다." />
+  <meta name="keywords" content="로또번호추천, 로또번호생성기, 로또6/45, 로또당첨번호, 로또전략, 행운번호" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://optifactory.pages.dev/" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="로또 번호 추천 - 무료 로또 6/45 번호 생성기" />
+  <meta property="og:description" content="로또 6/45 무료 번호 추천 서비스. 원하는 번호를 포함하여 5게임을 한 번에 추천받으세요." />
+  <meta property="og:url" content="https://optifactory.pages.dev/" />
+  <meta property="og:locale" content="ko_KR" />
+
+  <!-- AdSense -->
   <meta name="google-adsense-account" content="ca-pub-9454119295562568">
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9454119295562568" crossorigin="anonymous"></script>
+
+  <!-- Schema.org -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "로또 번호 추천",
+    "url": "https://optifactory.pages.dev/",
+    "description": "로또 6/45 무료 번호 추천 및 로또 정보 제공 사이트",
+    "inLanguage": "ko"
+  }
+  </script>
+
   <style>
-    .ad-wrap {
-      width: 100%;
-      max-width: 600px;
-      margin: 0 0 24px 0;
-      text-align: center;
-    }
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --bg: #0f0f1a;
+      --surface: rgba(255,255,255,0.05);
+      --border: rgba(255,255,255,0.1);
+      --gold: #f7c948;
+      --red: #ff6b6b;
+      --text: #e0e0e0;
+      --muted: #888;
+      --radius: 16px;
     }
 
     body {
+      background: linear-gradient(135deg, #1a1a2e 0%, #16213e 60%, #0f3460 100%);
       min-height: 100vh;
-      background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
-      font-family: 'Segoe UI', sans-serif;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      padding: 40px 20px;
-      color: #fff;
+      font-family: 'Segoe UI', 'Apple SD Gothic Neo', sans-serif;
+      color: var(--text);
+      line-height: 1.7;
     }
 
-    h1 {
-      font-size: 2.4rem;
+    /* ── 네비게이션 ── */
+    nav {
+      background: rgba(10,10,20,0.85);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      padding: 0 20px;
+    }
+    .nav-inner {
+      max-width: 900px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 56px;
+    }
+    .nav-logo {
       font-weight: 800;
-      margin-bottom: 8px;
-      background: linear-gradient(90deg, #f7c948, #ff6b6b);
+      font-size: 1.1rem;
+      background: linear-gradient(90deg, var(--gold), var(--red));
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
+      text-decoration: none;
+    }
+    .nav-links { display: flex; gap: 24px; }
+    .nav-links a {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 0.9rem;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--gold); }
+
+    /* ── 레이아웃 ── */
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 40px 20px 60px;
+    }
+
+    /* ── 히어로 ── */
+    .hero {
       text-align: center;
+      padding: 48px 0 36px;
     }
-
-    .subtitle {
-      color: #aaa;
-      margin-bottom: 40px;
-      font-size: 0.95rem;
-      text-align: center;
+    h1 {
+      font-size: 2.4rem;
+      font-weight: 900;
+      background: linear-gradient(90deg, var(--gold), var(--red));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 12px;
     }
-
-    .card {
-      background: rgba(255, 255, 255, 0.05);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      border-radius: 20px;
-      padding: 32px;
-      width: 100%;
-      max-width: 600px;
-      backdrop-filter: blur(10px);
-      margin-bottom: 24px;
-    }
-
-    .section-title {
+    .hero p {
+      color: var(--muted);
       font-size: 1rem;
-      color: #f7c948;
-      font-weight: 600;
-      margin-bottom: 20px;
-      display: flex;
-      align-items: center;
-      gap: 8px;
+      max-width: 480px;
+      margin: 0 auto;
     }
 
-    /* 번호 선택 영역 */
+    /* ── 카드 ── */
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 28px;
+      margin-bottom: 28px;
+      backdrop-filter: blur(8px);
+    }
+    .card-title {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--gold);
+      margin-bottom: 18px;
+    }
+
+    /* ── 번호 그리드 ── */
     .number-grid {
       display: grid;
       grid-template-columns: repeat(9, 1fr);
-      gap: 8px;
-      margin-bottom: 20px;
+      gap: 7px;
+      margin-bottom: 16px;
     }
-
     .num-btn {
       aspect-ratio: 1;
       border: none;
       border-radius: 50%;
-      font-size: 0.85rem;
+      font-size: 0.82rem;
       font-weight: 700;
       cursor: pointer;
-      transition: all 0.2s;
-      background: rgba(255,255,255,0.1);
+      background: rgba(255,255,255,0.08);
       color: #fff;
+      transition: all 0.18s;
     }
-
-    .num-btn:hover {
-      transform: scale(1.1);
-      background: rgba(247, 201, 72, 0.4);
-    }
-
+    .num-btn:hover { transform: scale(1.12); background: rgba(247,201,72,0.35); }
     .num-btn.selected {
-      background: #f7c948;
+      background: var(--gold);
       color: #1a1a2e;
-      box-shadow: 0 0 12px rgba(247, 201, 72, 0.6);
-      transform: scale(1.05);
+      box-shadow: 0 0 12px rgba(247,201,72,0.55);
     }
+    .include-note { font-size: 0.8rem; color: var(--muted); margin-bottom: 10px; }
+    .selected-preview { display: flex; flex-wrap: wrap; gap: 6px; min-height: 32px; }
 
-    .include-note {
-      font-size: 0.8rem;
-      color: #aaa;
-      margin-bottom: 8px;
-    }
-
-    .selected-preview {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 6px;
-      min-height: 36px;
-      margin-top: 8px;
-    }
-
-    /* 생성 버튼 */
+    /* ── 생성 버튼 ── */
     .btn-generate {
+      display: block;
       width: 100%;
+      max-width: 900px;
+      margin: 0 auto 28px;
       padding: 16px;
       border: none;
       border-radius: 14px;
-      background: linear-gradient(90deg, #f7c948, #ff6b6b);
+      background: linear-gradient(90deg, var(--gold), var(--red));
       color: #1a1a2e;
       font-size: 1.1rem;
       font-weight: 800;
       cursor: pointer;
+      letter-spacing: 0.5px;
       transition: all 0.2s;
-      letter-spacing: 1px;
-      max-width: 600px;
     }
+    .btn-generate:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(247,201,72,0.35); }
 
-    .btn-generate:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 8px 24px rgba(247, 201, 72, 0.4);
-    }
-
-    .btn-generate:active {
-      transform: translateY(0);
-    }
-
-    /* 결과 영역 */
-    .results {
-      width: 100%;
-      max-width: 600px;
-      display: flex;
-      flex-direction: column;
-      gap: 16px;
-      margin-top: 24px;
-    }
-
+    /* ── 결과 ── */
+    .results { display: flex; flex-direction: column; gap: 14px; margin-bottom: 28px; }
     .result-row {
-      background: rgba(255,255,255,0.05);
-      border: 1px solid rgba(255,255,255,0.1);
-      border-radius: 16px;
-      padding: 18px 22px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 16px 20px;
       display: flex;
       align-items: center;
       gap: 12px;
-      animation: fadeIn 0.4s ease;
+      animation: fadeUp 0.35s ease both;
     }
-
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(12px); }
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(10px); }
       to   { opacity: 1; transform: translateY(0); }
     }
-
-    .row-label {
-      font-size: 0.8rem;
-      color: #aaa;
-      min-width: 36px;
-      font-weight: 600;
-    }
-
-    .balls {
-      display: flex;
-      gap: 8px;
-      flex-wrap: wrap;
-    }
-
+    .row-label { font-size: 0.78rem; color: var(--muted); min-width: 36px; font-weight: 600; }
+    .balls { display: flex; gap: 7px; flex-wrap: wrap; }
     .ball {
-      width: 44px;
-      height: 44px;
+      width: 42px; height: 42px;
       border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 0.9rem;
-      font-weight: 800;
-      color: #fff;
-      box-shadow: inset 0 -3px 6px rgba(0,0,0,0.3), 0 3px 8px rgba(0,0,0,0.3);
-      animation: popIn 0.3s ease backwards;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.88rem; font-weight: 800; color: #fff;
+      box-shadow: inset 0 -3px 5px rgba(0,0,0,0.28), 0 3px 8px rgba(0,0,0,0.28);
+      animation: popIn 0.28s ease both;
     }
-
-    @keyframes popIn {
-      from { transform: scale(0); opacity: 0; }
-      to   { transform: scale(1); opacity: 1; }
+    @keyframes popIn { from { transform: scale(0); } to { transform: scale(1); } }
+    .ball.yellow { background: linear-gradient(135deg,#ffd700,#f4a100); }
+    .ball.blue   { background: linear-gradient(135deg,#4fc3f7,#0288d1); }
+    .ball.red    { background: linear-gradient(135deg,#ef5350,#b71c1c); }
+    .ball.gray   { background: linear-gradient(135deg,#90a4ae,#546e7a); }
+    .ball.green  { background: linear-gradient(135deg,#66bb6a,#2e7d32); }
+    .small-ball {
+      width: 26px; height: 26px;
+      border-radius: 50%;
+      display: inline-flex; align-items: center; justify-content: center;
+      font-size: 0.68rem; font-weight: 800; color: #fff;
     }
-
-    .ball.yellow { background: linear-gradient(135deg, #ffd700, #f4a100); }
-    .ball.blue   { background: linear-gradient(135deg, #4fc3f7, #0288d1); }
-    .ball.red    { background: linear-gradient(135deg, #ef5350, #b71c1c); }
-    .ball.gray   { background: linear-gradient(135deg, #90a4ae, #546e7a); }
-    .ball.green  { background: linear-gradient(135deg, #66bb6a, #2e7d32); }
-
     .copy-btn {
       margin-left: auto;
-      background: rgba(255,255,255,0.1);
-      border: none;
-      color: #aaa;
-      padding: 6px 12px;
-      border-radius: 8px;
-      cursor: pointer;
-      font-size: 0.8rem;
-      white-space: nowrap;
+      background: rgba(255,255,255,0.08);
+      border: none; color: var(--muted);
+      padding: 5px 12px; border-radius: 8px;
+      cursor: pointer; font-size: 0.78rem; white-space: nowrap;
       transition: all 0.2s;
     }
+    .copy-btn:hover { background: rgba(247,201,72,0.18); color: var(--gold); }
 
-    .copy-btn:hover {
-      background: rgba(247,201,72,0.2);
-      color: #f7c948;
-    }
+    .empty-msg { text-align: center; color: #444; font-size: 0.9rem; padding: 16px 0; }
 
-    .empty-msg {
+    /* ── 광고 ── */
+    .ad-wrap {
+      width: 100%;
+      margin: 0 auto 28px;
       text-align: center;
-      color: #555;
-      font-size: 0.9rem;
-      padding: 20px 0;
+      background: rgba(255,255,255,0.02);
+      border-radius: var(--radius);
+      overflow: hidden;
     }
 
-    .small-ball {
-      width: 28px;
-      height: 28px;
-      border-radius: 50%;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 0.7rem;
+    /* ── 섹션 ── */
+    .section { margin-bottom: 40px; }
+    .section h2 {
+      font-size: 1.3rem;
       font-weight: 800;
       color: #fff;
+      margin-bottom: 16px;
+      padding-bottom: 10px;
+      border-bottom: 2px solid var(--border);
     }
+    .section h3 { font-size: 1rem; font-weight: 700; color: var(--gold); margin: 20px 0 8px; }
+    .section p { color: var(--text); font-size: 0.95rem; margin-bottom: 12px; }
+    .section ul { padding-left: 20px; color: var(--text); font-size: 0.95rem; }
+    .section ul li { margin-bottom: 8px; }
 
+    /* ── 당첨 등급 테이블 ── */
+    .prize-table { width: 100%; border-collapse: collapse; font-size: 0.9rem; }
+    .prize-table th {
+      background: rgba(247,201,72,0.15);
+      color: var(--gold);
+      font-weight: 700;
+      padding: 10px 14px;
+      text-align: left;
+      border-bottom: 1px solid var(--border);
+    }
+    .prize-table td {
+      padding: 10px 14px;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+      color: var(--text);
+    }
+    .prize-table tr:last-child td { border-bottom: none; }
+    .prize-table tr:hover td { background: rgba(255,255,255,0.03); }
+
+    /* ── FAQ ── */
+    .faq-item { border-bottom: 1px solid var(--border); padding: 16px 0; }
+    .faq-item:last-child { border-bottom: none; }
+    .faq-q { font-weight: 700; color: #fff; margin-bottom: 8px; font-size: 0.95rem; }
+    .faq-a { color: var(--muted); font-size: 0.9rem; line-height: 1.6; }
+
+    /* ── 푸터 ── */
     footer {
-      margin-top: 40px;
-      color: #444;
-      font-size: 0.78rem;
+      background: rgba(0,0,0,0.35);
+      border-top: 1px solid var(--border);
+      padding: 28px 20px;
       text-align: center;
+      color: var(--muted);
+      font-size: 0.82rem;
+    }
+    footer .footer-links { display: flex; justify-content: center; gap: 20px; margin-bottom: 14px; flex-wrap: wrap; }
+    footer .footer-links a { color: var(--muted); text-decoration: none; transition: color 0.2s; }
+    footer .footer-links a:hover { color: var(--gold); }
+    footer p { color: #444; }
+
+    @media (max-width: 480px) {
+      h1 { font-size: 1.7rem; }
+      .number-grid { grid-template-columns: repeat(7, 1fr); }
+      .ball { width: 36px; height: 36px; font-size: 0.78rem; }
     }
   </style>
 </head>
 <body>
 
-  <h1>🎰 로또 번호 추천</h1>
-  <p class="subtitle">행운의 번호를 뽑아보세요! (1~45 중 6개)</p>
-
-  <!-- 광고 1: 상단 -->
-  <div class="ad-wrap">
-    <ins class="adsbygoogle"
-         style="display:block"
-         data-ad-client="ca-pub-9454119295562568"
-         data-ad-slot="auto"
-         data-ad-format="auto"
-         data-full-width-responsive="true"></ins>
-    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-  </div>
-
-  <!-- 포함 번호 선택 카드 -->
-  <div class="card">
-    <div class="section-title">⭐ 포함할 번호 선택 (선택 사항 · 최대 6개)</div>
-    <p class="include-note">원하는 번호를 클릭하면 반드시 포함된 번호로 생성됩니다.</p>
-    <div class="number-grid" id="numberGrid"></div>
-    <div class="selected-preview" id="selectedPreview">
-      <span style="color:#555; font-size:0.8rem;">선택된 번호 없음</span>
+<nav>
+  <div class="nav-inner">
+    <a href="/" class="nav-logo">🎰 로또번호추천</a>
+    <div class="nav-links">
+      <a href="#guide">이용방법</a>
+      <a href="#prize">당첨등급</a>
+      <a href="#faq">FAQ</a>
+      <a href="about.html">소개</a>
+      <a href="contact.html">문의</a>
     </div>
   </div>
+</nav>
 
-  <!-- 광고 2: 중단 -->
-  <div class="ad-wrap">
-    <ins class="adsbygoogle"
-         style="display:block"
-         data-ad-client="ca-pub-9454119295562568"
-         data-ad-slot="auto"
-         data-ad-format="auto"
-         data-full-width-responsive="true"></ins>
-    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+<div class="container">
+
+  <!-- 히어로 -->
+  <div class="hero">
+    <h1>🎰 로또 번호 추천</h1>
+    <p>로또 6/45 무료 번호 생성기 — 원하는 번호를 포함해 5게임을 한 번에 추천받으세요</p>
+  </div>
+
+  <!-- 포함 번호 선택 -->
+  <div class="card">
+    <div class="card-title">⭐ 포함할 번호 선택 <span style="font-weight:400;color:var(--muted)">(선택사항 · 최대 6개)</span></div>
+    <p class="include-note">원하는 번호를 클릭하면 해당 번호가 반드시 포함된 조합으로 생성됩니다.</p>
+    <div class="number-grid" id="numberGrid"></div>
+    <div class="selected-preview" id="selectedPreview">
+      <span style="color:#444;font-size:0.8rem;">선택된 번호 없음</span>
+    </div>
   </div>
 
   <!-- 생성 버튼 -->
@@ -290,10 +336,10 @@
 
   <!-- 결과 -->
   <div class="results" id="results">
-    <div class="empty-msg">버튼을 눌러 번호를 추천받으세요!</div>
+    <div class="empty-msg">위 버튼을 눌러 행운의 번호를 추천받으세요!</div>
   </div>
 
-  <!-- 광고 3: 하단 -->
+  <!-- 광고 1 -->
   <div class="ad-wrap">
     <ins class="adsbygoogle"
          style="display:block"
@@ -304,31 +350,175 @@
     <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
   </div>
 
-  <footer>※ 이 사이트는 순수 재미용입니다. 당첨을 보장하지 않습니다.</footer>
+  <!-- 이용 방법 -->
+  <div class="section" id="guide">
+    <h2>📖 이용 방법</h2>
+    <p>로또 번호 추천기는 간단한 3단계로 사용할 수 있습니다.</p>
+    <h3>1단계: 포함 번호 선택 (선택사항)</h3>
+    <p>1부터 45 사이의 번호 중 반드시 포함되었으면 하는 번호를 클릭하세요. 최대 6개까지 선택 가능합니다. 선택하지 않으면 완전 무작위로 생성됩니다.</p>
+    <h3>2단계: 번호 추천받기</h3>
+    <p>「✨ 번호 추천받기」 버튼을 누르면 5게임의 번호가 한 번에 생성됩니다. 각 게임은 서로 독립적인 무작위 번호로 구성됩니다.</p>
+    <h3>3단계: 복사 후 구매</h3>
+    <p>마음에 드는 게임 옆의 「복사」 버튼을 누르면 번호가 클립보드에 복사됩니다. 해당 번호를 복권 판매점이나 동행복권 앱에서 직접 입력하여 구매하세요.</p>
+  </div>
+
+  <!-- 로또란? -->
+  <div class="section">
+    <h2>🎱 로또 6/45란?</h2>
+    <p>로또 6/45는 대한민국에서 가장 인기 있는 복권으로, 1부터 45까지의 숫자 중 6개를 선택하여 추첨 번호와 일치하는 개수에 따라 당첨금을 받는 게임입니다.</p>
+    <p>매주 <strong>토요일 오후 8시 45분</strong>에 KBS2를 통해 생방송으로 추첨이 진행되며, 1게임 구매 금액은 <strong>1,000원</strong>입니다. 한 번에 최대 5게임까지 자동으로 번호를 생성하거나 직접 번호를 선택할 수 있습니다.</p>
+    <p>판매 금액의 일부는 과학기술진흥기금, 법무부, 보건복지부 등 공익 목적으로 사용되어 사회에 환원됩니다.</p>
+  </div>
+
+  <!-- 당첨 등급 -->
+  <div class="section" id="prize">
+    <h2>🏆 당첨 등급 및 당첨금</h2>
+    <p>로또 6/45의 당첨 등급은 총 5단계로 나뉩니다. 1등부터 3등까지는 해당 등급의 당첨자 수에 따라 배분금이 달라지는 변동 당첨금 방식입니다.</p>
+    <div class="card" style="padding:0;overflow:hidden;">
+      <table class="prize-table">
+        <thead>
+          <tr>
+            <th>등급</th>
+            <th>당첨 조건</th>
+            <th>당첨금</th>
+            <th>당첨 확률</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong style="color:#ffd700;">1등</strong></td>
+            <td>추첨번호 6개 일치</td>
+            <td>총 판매금액의 40% 배분</td>
+            <td>약 1/814만</td>
+          </tr>
+          <tr>
+            <td><strong style="color:#b0b0b0;">2등</strong></td>
+            <td>추첨번호 5개 + 보너스 번호 일치</td>
+            <td>1등 배분금의 1/5</td>
+            <td>약 1/135만</td>
+          </tr>
+          <tr>
+            <td><strong style="color:#cd7f32;">3등</strong></td>
+            <td>추첨번호 5개 일치</td>
+            <td>총 판매금액의 15% 배분</td>
+            <td>약 1/3만</td>
+          </tr>
+          <tr>
+            <td>4등</td>
+            <td>추첨번호 4개 일치</td>
+            <td>50,000원 고정</td>
+            <td>약 1/733</td>
+          </tr>
+          <tr>
+            <td>5등</td>
+            <td>추첨번호 3개 일치</td>
+            <td>5,000원 고정</td>
+            <td>약 1/45</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="font-size:0.82rem;color:var(--muted);">※ 당첨금 수령 가능 기간: 추첨일로부터 1년 이내 / 세금: 당첨금 200만 원 초과 시 22% 원천징수</p>
+  </div>
+
+  <!-- 광고 2 -->
+  <div class="ad-wrap">
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-9454119295562568"
+         data-ad-slot="auto"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+  </div>
+
+  <!-- 번호 선택 전략 -->
+  <div class="section">
+    <h2>💡 번호 선택 팁</h2>
+    <p>로또는 순수 확률 게임으로 어떤 번호도 다른 번호보다 당첨 확률이 높지 않습니다. 다만 아래와 같은 방식으로 번호를 선택하면 당첨 시 다른 사람과 당첨금을 나눌 가능성을 줄일 수 있습니다.</p>
+    <h3>골고루 분산 선택</h3>
+    <p>1~10, 11~20, 21~30, 31~40, 41~45 구간에서 골고루 번호를 선택하면 특정 구간에 몰리는 것을 피할 수 있습니다. 많은 사람들이 생일(1~31)을 사용하므로 31 이상의 번호도 포함하는 것이 유리합니다.</p>
+    <h3>홀수와 짝수 균형</h3>
+    <p>6개 번호 중 홀수 3개, 짝수 3개 또는 홀수 4개, 짝수 2개 조합이 통계적으로 자주 등장합니다. 모두 홀수 또는 모두 짝수인 경우는 상대적으로 드물게 나옵니다.</p>
+    <h3>생일 번호 의존도 낮추기</h3>
+    <p>많은 사람이 생일(1~31)이나 기념일 숫자를 사용합니다. 32~45 구간의 번호를 일부 포함하면 당첨 시 분배 인원이 줄어 더 많은 금액을 받을 수 있습니다.</p>
+    <h3>자동 번호 생성 활용</h3>
+    <p>위의 번호 추천기를 활용하면 완전한 무작위 번호를 빠르게 생성할 수 있습니다. 무작위 선택은 특정 패턴에 대한 편향 없이 균등한 확률을 보장합니다.</p>
+  </div>
+
+  <!-- FAQ -->
+  <div class="section" id="faq">
+    <h2>❓ 자주 묻는 질문</h2>
+    <div class="card">
+      <div class="faq-item">
+        <p class="faq-q">Q. 로또 추첨은 언제, 어떻게 진행되나요?</p>
+        <p class="faq-a">매주 토요일 오후 8시 45분에 KBS2 TV를 통해 생방송으로 추첨됩니다. 1부터 45까지 번호가 적힌 45개의 공을 혼합기에 넣고 6개를 순서대로 추첨한 뒤, 보너스 번호 1개를 추가로 추첨합니다.</p>
+      </div>
+      <div class="faq-item">
+        <p class="faq-q">Q. 이 사이트의 번호 추천은 당첨 확률을 높여주나요?</p>
+        <p class="faq-a">아닙니다. 본 서비스는 1~45 사이의 숫자를 완전히 무작위로 생성합니다. 로또는 매 회차 독립적으로 진행되는 순수 확률 게임으로, 어떤 방법으로도 당첨 확률을 수학적으로 높이는 것은 불가능합니다.</p>
+      </div>
+      <div class="faq-item">
+        <p class="faq-q">Q. 당첨금은 언제까지 수령해야 하나요?</p>
+        <p class="faq-a">당첨금은 추첨일로부터 1년 이내에 수령해야 합니다. 기간이 경과하면 당첨금을 받을 수 없으니, 반드시 기간 안에 확인하고 수령하세요. 1~2등은 농협은행 본점 또는 지역 본부에서, 3등 이하는 전국 복권 판매점에서 수령 가능합니다.</p>
+      </div>
+      <div class="faq-item">
+        <p class="faq-q">Q. 같은 번호를 매주 사면 당첨 확률이 높아지나요?</p>
+        <p class="faq-a">매 회차의 추첨은 서로 완전히 독립적입니다. 이전 회차에 나온 번호가 다음 회차에 영향을 주지 않습니다. 같은 번호를 반복 구매하는 것과 매번 다른 번호를 구매하는 것의 회차당 당첨 확률은 동일합니다.</p>
+      </div>
+      <div class="faq-item">
+        <p class="faq-q">Q. 로또 당첨금에 세금이 부과되나요?</p>
+        <p class="faq-a">당첨금이 200만 원을 초과하는 경우 22%(소득세 20% + 지방소득세 2%)의 세금이 원천징수됩니다. 200만 원 이하의 3~5등 당첨금은 비과세입니다.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- 광고 3 -->
+  <div class="ad-wrap">
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-9454119295562568"
+         data-ad-slot="auto"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+  </div>
+
+  <!-- 면책 -->
+  <div class="card" style="background:rgba(255,100,100,0.05);border-color:rgba(255,100,100,0.2);">
+    <p style="font-size:0.82rem;color:var(--muted);margin:0;">⚠️ <strong style="color:#aaa;">면책 고지</strong> — 본 사이트의 번호 추천은 순수 오락 목적으로 제공되며, 당첨을 보장하지 않습니다. 복권 구매는 만 19세 이상만 가능하며, 과도한 복권 구매는 가정 경제에 악영향을 미칠 수 있습니다. 건전한 여가 활동으로 즐기시기 바랍니다.</p>
+  </div>
+
+</div><!-- /container -->
+
+<footer>
+  <div class="footer-links">
+    <a href="/">홈</a>
+    <a href="about.html">사이트 소개</a>
+    <a href="privacy.html">개인정보처리방침</a>
+    <a href="contact.html">문의하기</a>
+  </div>
+  <p>© 2026 로또번호추천. 본 사이트는 동행복권과 무관한 독립 서비스입니다.</p>
+</footer>
 
 <script>
   const selected = new Set();
-
-  // 번호 그리드 생성
   const grid = document.getElementById('numberGrid');
+
   for (let i = 1; i <= 45; i++) {
     const btn = document.createElement('button');
     btn.className = 'num-btn';
     btn.textContent = i;
-    btn.dataset.n = i;
-    btn.onclick = () => toggleNum(i, btn);
+    btn.onclick = () => toggle(i, btn);
     grid.appendChild(btn);
   }
 
-  function toggleNum(n, btn) {
+  function toggle(n, btn) {
     if (selected.has(n)) {
       selected.delete(n);
       btn.classList.remove('selected');
     } else {
-      if (selected.size >= 6) {
-        alert('최대 6개까지만 선택할 수 있습니다.');
-        return;
-      }
+      if (selected.size >= 6) { alert('최대 6개까지 선택 가능합니다.'); return; }
       selected.add(n);
       btn.classList.add('selected');
     }
@@ -336,64 +526,52 @@
   }
 
   function updatePreview() {
-    const preview = document.getElementById('selectedPreview');
-    if (selected.size === 0) {
-      preview.innerHTML = '<span style="color:#555;font-size:0.8rem;">선택된 번호 없음</span>';
-      return;
-    }
-    preview.innerHTML = [...selected].sort((a,b)=>a-b).map(n =>
-      `<span class="small-ball ${ballColor(n)}">${n}</span>`
-    ).join('');
+    const el = document.getElementById('selectedPreview');
+    if (!selected.size) { el.innerHTML = '<span style="color:#444;font-size:0.8rem;">선택된 번호 없음</span>'; return; }
+    el.innerHTML = [...selected].sort((a,b)=>a-b).map(n =>
+      `<span class="small-ball ${color(n)}">${n}</span>`).join('');
   }
 
-  function ballColor(n) {
-    if (n <= 10) return 'yellow';
-    if (n <= 20) return 'blue';
-    if (n <= 30) return 'red';
-    if (n <= 40) return 'gray';
+  function color(n) {
+    if (n<=10) return 'yellow';
+    if (n<=20) return 'blue';
+    if (n<=30) return 'red';
+    if (n<=40) return 'gray';
     return 'green';
   }
 
-  function pickRandom(exclude, count) {
-    const pool = [];
-    for (let i = 1; i <= 45; i++) {
-      if (!exclude.has(i)) pool.push(i);
+  function shuffle(arr) {
+    for (let i = arr.length-1; i > 0; i--) {
+      const j = Math.floor(Math.random()*(i+1));
+      [arr[i],arr[j]] = [arr[j],arr[i]];
     }
-    // Fisher-Yates shuffle
-    for (let i = pool.length - 1; i > 0; i--) {
-      const j = Math.floor(Math.random() * (i + 1));
-      [pool[i], pool[j]] = [pool[j], pool[i]];
-    }
-    return pool.slice(0, count);
+    return arr;
   }
 
   function generate() {
-    const resultsEl = document.getElementById('results');
-    resultsEl.innerHTML = '';
-
-    const games = 5;
-    for (let g = 0; g < games; g++) {
+    const el = document.getElementById('results');
+    el.innerHTML = '';
+    for (let g = 0; g < 5; g++) {
       const fixed = [...selected];
-      const need = 6 - fixed.length;
-      const extra = pickRandom(new Set(fixed), need);
-      const nums = [...fixed, ...extra].sort((a, b) => a - b);
+      const pool = shuffle([...Array(45)].map((_,i)=>i+1).filter(n=>!selected.has(n)));
+      const nums = [...fixed, ...pool.slice(0,6-fixed.length)].sort((a,b)=>a-b);
 
       const row = document.createElement('div');
       row.className = 'result-row';
-      row.style.animationDelay = `${g * 0.08}s`;
+      row.style.animationDelay = `${g*0.07}s`;
 
       const label = document.createElement('div');
       label.className = 'row-label';
-      label.textContent = `${g + 1}게임`;
+      label.textContent = `${g+1}게임`;
 
       const balls = document.createElement('div');
       balls.className = 'balls';
-      nums.forEach((n, idx) => {
-        const ball = document.createElement('div');
-        ball.className = `ball ${ballColor(n)}`;
-        ball.textContent = n;
-        ball.style.animationDelay = `${g * 0.08 + idx * 0.05}s`;
-        balls.appendChild(ball);
+      nums.forEach((n,idx) => {
+        const b = document.createElement('div');
+        b.className = `ball ${color(n)}`;
+        b.textContent = n;
+        b.style.animationDelay = `${g*0.07+idx*0.05}s`;
+        balls.appendChild(b);
       });
 
       const copyBtn = document.createElement('button');
@@ -402,14 +580,12 @@
       copyBtn.onclick = () => {
         navigator.clipboard.writeText(nums.join(', ')).then(() => {
           copyBtn.textContent = '✓ 복사됨';
-          setTimeout(() => copyBtn.textContent = '복사', 1500);
+          setTimeout(()=>copyBtn.textContent='복사', 1500);
         });
       };
 
-      row.appendChild(label);
-      row.appendChild(balls);
-      row.appendChild(copyBtn);
-      resultsEl.appendChild(row);
+      row.append(label, balls, copyBtn);
+      el.appendChild(row);
     }
   }
 </script>
